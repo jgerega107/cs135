@@ -113,12 +113,7 @@
 
 ;; Type signature: (subset? set set) -> boolean
 (define (subset? SA SB)
-  (if (null? SA)
-     #t
-     (if (element? (car SA) SB)
-         (subset? (cdr SA) SB)
-         #f)) 
-  )
+  "Not implemented")
 
 
 
@@ -132,22 +127,13 @@
 ;; Examples:
 ;; (set-equal? '() '()) => #t
 ;; (set-equal? '(a b c) '(a b c)) => #t
-;; (set-equal? '(a b c) '(a b c)) => #t
+;; (set-equal? '(1 2 3 4) '(4 3 1 2)) => #t
 ;; (set-equal? '(1 2 3) '(1 2 4)) => #f
 ;; (set-equal? '(5 5 5 5) '(5)) => #t
 
 ;; Type signature: (set-equal? set set) -> boolean
 (define (set-equal? SA SB)
-  (if (and (null? SA) (null? SB))
-      #t
-      (if (not (eq? (length (make-set SA)) (length (make-set SB))))
-      #f
-      (if (element? (car (make-set SA)) (make-set SB))
-         (subset? (cdr (make-set SA)) (make-set SB))
-         #f
-      )
-  ))
-  )
+  "Not implemented")
 
 
 
@@ -165,14 +151,7 @@
 
 ;; Type signature: (set-difference list list) -> set
 (define (set-difference LA LB)
-  (if (null? LA)
-      '()
-      (if (element? (car (make-set LA)) (make-set LB))
-          (set-difference (cdr (make-set LA)) (make-set LB))
-          (cons (car (make-set LA)) (set-difference (cdr (make-set LA)) (make-set LB)))
-          )
-      )
-  )
+  "Not implemented")
 
 
 
@@ -190,7 +169,7 @@
 
 ;; Type signature: (sym-diff list list) -> set
 (define (sym-diff LA LB)
-  (union (set-difference LA LB) (set-difference LB LA)))
+  "Not implemented")
 
 
 
@@ -207,7 +186,7 @@
 
 ;; Type signature: (cardinality list) -> int
 (define (cardinality L)
-  (length (make-set L)))
+  "Not implemented")
 
 
 
@@ -223,13 +202,7 @@
 
 ;; Type signature: (disjoint? set set) -> boolean
 (define (disjoint? SA SB)
-  (if (or (null? SB) (null? SA))
-      #t
-      (if (element? (car (make-set SA)) (make-set SB))
-          #f
-          (disjoint? (cdr (make-set SA)) (make-set SB)))
-      )
-  )
+  "Not implemented")
 
 
 
@@ -245,13 +218,7 @@
 
 ;; Type signature: (superset? set set) -> boolean
 (define (superset? SA SB)
-  (if (null? SB)
-      #t
-      (if (element? (car (make-set SB)) (make-set SA))
-          (superset? (make-set SA) (cdr (make-set SB)))
-          #f)
-      )
-  )
+  "Not implemented")
 
 
 
@@ -269,7 +236,7 @@
 
 ;; Type signature: (insert element list) -> set
 (define (insert e L)
-  (make-set (cons e L)))
+  "Not implemented")
 
 
 
@@ -286,14 +253,7 @@
 
 ;; Type signature: (remove element set) -> set
 (define (remove e S)
-  (if (null? S)
-      '()
-      (if (eq? (car S) e)
-          (remove e (cdr S))
-          (cons (car S) (remove e (cdr S)))
-          )
-      )
-  )
+  "Not implemented")
 
 
 
