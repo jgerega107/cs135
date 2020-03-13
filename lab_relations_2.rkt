@@ -163,7 +163,7 @@
 ;;
 ;; Type Signature: (EQ-relation? relation int) -> boolean
 (define (EQ-relation? R n)
-  (and (and (and (symmetric? R) (reflexive? R n)) (transitive? R)) (>= n 1))
+  (and (symmetric? R) (reflexive? R n) (transitive? R))
   )
 
 
