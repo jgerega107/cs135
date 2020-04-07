@@ -191,7 +191,11 @@
 ;;
 ;; Type Signature: (CRT-helper cong-sys int) -> int
 (define (CRT-helper cong-sys m)
-  "Not implemented")
+  (if (null? cong-sys)
+      0
+      (+ (* (caar cong-sys) (/ m (cadar cong-sys)) (mul-inv (/ m (cadar cong-sys)) (cadar cong-sys))) (CRT-helper (cdr cong-sys) m))
+      )
+  )
 
 
 
@@ -214,4 +218,8 @@
 ;;
 ;; Type Signature: (CRT cong-sys) -> int
 (define (CRT cong-sys)
-  "Not implemented")
+  (if (CRT-exists? cong-sys)
+      (modulo (CRT-helper cong-sys (m cong-sys)) (m cong-sys))
+      -1
+      )
+  )
